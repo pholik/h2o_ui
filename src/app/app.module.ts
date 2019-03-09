@@ -6,11 +6,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatSidenavModule, MatChipsModule} from '@angular/material';
 import { OrderByPipe } from './order-by.pipe';
+import { NavLeftComponent } from './nav-left/nav-left.component';
+import { HomeComponent } from './home/home.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OrderByPipe
+    OrderByPipe,
+    NavLeftComponent,
+    HomeComponent,
+    ContactDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +25,9 @@ import { OrderByPipe } from './order-by.pipe';
     BrowserAnimationsModule,
     MatButtonModule,
     MatSidenavModule,
-    MatChipsModule
+    MatChipsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

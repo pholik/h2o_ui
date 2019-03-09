@@ -1,0 +1,8 @@
+<div *ngFor="let contact of global.locContacts | orderBy : ['lastName', 'firstName']; let i = index">
+  <div *ngIf="addLetterDivider(i)">
+    <b>{{global.locContacts[i].lastName[0]}}</b>
+  </div>
+  <button (click)="selectActive(contact.id)" [ngClass]="{'active': isActive(contact.id)}" >
+      {{contact.firstName}} / {{contact.lastName}}
+  </button>
+</div>

@@ -1,0 +1,11 @@
+{{activeContact?.firstName}}
+
+<form [formGroup]="contactForm" novalidate (ngSubmit)="onUpdate()">
+    <input type="text" formControlName="firstName">
+    <input type="text" formControlName="lastName">
+    <button type="submit" name="action">
+            Submit
+            <i class="material-icons right">send</i>
+    </button>
+  
+</form>
