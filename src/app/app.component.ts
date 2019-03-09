@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalApp, IContact } from './global';
+import { GlobalModule, IContact } from './global';
 
 
 
@@ -7,7 +7,7 @@ import { GlobalApp, IContact } from './global';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [GlobalApp]
+  providers: [GlobalModule]
 })
 
 export class AppComponent implements OnInit {
@@ -98,11 +98,10 @@ export class AppComponent implements OnInit {
 
   activeContact: number = null;
 
-  constructor(public app: GlobalApp) { }
+  constructor(public global: GlobalModule) { }
 
   ngOnInit() {
-    localStorage.setItem('contacts', JSON.stringify(this.generateContacts(200)));
-    this.contacts = this.generateContacts(200);
+    localStorage.setItem('contacts', JSON.stringify(this.generateContacts(4)));
   }
 
   private generateContacts(iter: number) {
@@ -126,19 +125,22 @@ export class AppComponent implements OnInit {
 
   public selectActive(index) {
     this.activeContact = index;
-    console.log(this.activeContact)
   }
 
   public addLetterDivider(i: number) {
     if (i === 0) {
       return true;
     } else {
-      if (this.contacts[i].lastName[0] !== this.contacts[i - 1].lastName[0]) {
+      if (this.global.getContacts()[i].lastName[0] !== this.global.getContacts()[i - 1].lastName[0]) {
         return true;
       } else {
         return false;
       }
     }
+  }
+
+  public write(obj) {
+    console.log(obj)
   }
 
 }

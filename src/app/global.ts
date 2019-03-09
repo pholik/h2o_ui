@@ -4,7 +4,7 @@ export interface IContact {
     lastName: string;
   }
 
-export class GlobalApp {
+export class GlobalModule {
 
     constructor() {}
 
@@ -14,5 +14,9 @@ export class GlobalApp {
 
     public getContacts(): IContact[] {
         return JSON.parse(localStorage.getItem('contacts'));
+    }
+
+    public getContactById(id: number): IContact[] {
+        return JSON.parse(localStorage.getItem('contacts')).filter(x => x.id === id)[0];
     }
 }
