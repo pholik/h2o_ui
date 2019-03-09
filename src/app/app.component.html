@@ -1,6 +1,18 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
-  <mat-sidenav-content>Main content</mat-sidenav-content>
+  <mat-sidenav mode="side" opened>
+    <div *ngFor="let contact of contacts| orderBy : ['lastName', 'firstName']; let i = index">
+      <div *ngIf="addLetterDivider(i)">
+        <b>{{contacts[i].lastName[0]}}</b>
+      </div>
+      <button mat-stroked-button [ngClass]="{'active': isActive(i)}" (click)="selectActive(i)">
+          {{contact.firstName}} / {{contact.lastName}}
+      </button>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    Main content
+    {{ activeContact !== null ? contacts[activeContact].firstName : null }}
+  </mat-sidenav-content>
 </mat-sidenav-container>
 
 <router-outlet></router-outlet>

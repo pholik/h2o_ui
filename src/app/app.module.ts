@@ -4,18 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatSidenavModule} from '@angular/material';
+import { MatButtonModule, MatSidenavModule, MatChipsModule} from '@angular/material';
+import { OrderByPipe } from './order-by.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
