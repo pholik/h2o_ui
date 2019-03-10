@@ -1,6 +1,6 @@
-<div *ngIf="activeContact">
+<div *ngIf="global.activeContact">
     <div *ngIf="isEdit">
-        {{activeContact?.id ? 'Lets edit': 'Lets create'}}
+        {{global.activeContact?.id ? 'Lets edit': 'Lets create'}}
         <form [formGroup]="contactForm" novalidate (ngSubmit)="onSubmit()">
             <input type="text" formControlName="firstName">
             <input type="text" formControlName="lastName">
@@ -14,7 +14,7 @@
         </form>
     </div>
     <div *ngIf="!isEdit">
-            {{this.activeContact.firstName}}
+            {{global.activeContact.firstName}}
     </div>
 </div>
 

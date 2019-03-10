@@ -11,19 +11,18 @@ export class NavLeftComponent implements OnInit {
 
   @Output() messageEvent = new EventEmitter<number>();
   contacts: IContact[] = [];
-  activeContact: number = null;
 
   constructor(public global: GlobalModule) { }
 
   ngOnInit() { }
 
   public isActive(i: number) {
-    return i === this.activeContact;
+    return i === this.global.activeContactId;
   }
 
   public selectActive(index) {
-    this.activeContact = index;
-    this.messageEvent.emit(this.activeContact);
+    this.global.activeContactId = index;
+    this.global.activeContact = this.global.getContactById(index);
   }
 
   public addLetterDivider(i: number) {

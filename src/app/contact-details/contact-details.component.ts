@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { GlobalModule, IContact } from '../global';
 import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
@@ -10,15 +10,13 @@ import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 export class ContactDetailsComponent implements OnInit {
 
   @Input() set activeContactId(value: number) {
-    this.activeContact = this.global.getContactById(value);
-    if (this.activeContact) {
-      this.contactForm.setValue(this.activeContact);
+    if (this.global.activeContact.id) {
+      this.contactForm.setValue(this.global.activeContact);
     }
   }
 
   @Output() activeContactIdChange: EventEmitter<number> = new EventEmitter<number>();
 
-  activeContact: IContact;
   isEdit = false;
 
   contactForm = this.fb.group({
@@ -31,7 +29,7 @@ export class ContactDetailsComponent implements OnInit {
   });
 
   constructor(public global: GlobalModule,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder, public cd: ChangeDetectorRef) { }
 
   ngOnInit() { }
 
@@ -58,8 +56,10 @@ export class ContactDetailsComponent implements OnInit {
 
   public prepareCreateForm() {
     this.contactForm.reset();
+    this.global.activeContactId = 0;
+    this.cd.detectChanges();
     // this.activeContactId = null;
-    this.activeContact = this.global.createEmptyContact();
+    // this.activeContact = this.global.createEmptyContact();
     this.isEdit = true;
     // this.activeContactIdChange.emit(-1);
   }

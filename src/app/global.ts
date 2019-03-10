@@ -9,6 +9,8 @@ export interface IContact {
 
 export class GlobalModule {
     locContacts: IContact[];
+    activeContactId: number;
+    activeContact: IContact = this.createEmptyContact();
     names = ['Adam',
   'Andrewe',
   'Anthonye',
