@@ -1,4 +1,4 @@
-<div *ngIf="global.activeContact">
+<div class="contact-details__content_wrapper" *ngIf="global.activeContact.id">
     <div *ngIf="isEdit">
         {{global.activeContact?.id ? 'Lets edit': 'Lets create'}}
         <form [formGroup]="contactForm" novalidate (ngSubmit)="onSubmit()">
@@ -9,19 +9,51 @@
             <input type="text" formControlName="note">
             <button type="submit" name="action" [disabled]='!contactForm.valid'>
                 Submit
-                <i class="material-icons right">send</i>
             </button>
         </form>
     </div>
     <div *ngIf="!isEdit">
-            {{global.activeContact.firstName}}
+        <h1 class="contact-details__heading_name">
+            <input class='contact-details__input_names'type="text" value="{{global.activeContact.firstName}} {{global.activeContact.lastName}}">
+        </h1>
+        <section>
+                <table>
+                    <tr>
+                        <td class="contact-details__table_left_heading">phone</td>
+                        <td class="contact-details__table_right_text">
+                            <input type="text" value="{{global.activeContact.phone}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="contact-details__table_left_heading">email</td>
+                        <td class="contact-details__table_right_text">
+                            <input type="text" value="{{global.activeContact.email}}">
+                        </td>
+                    </tr>  
+                    <tr>
+                        <td class="contact-details__table_left_heading">address</td>
+                        <td class="contact-details__table_right_text">
+                            <input type="text" value="{{global.activeContact.address}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="contact-details__table_left_heading">note</td>
+                        <td class="contact-details__table_right_text">
+                            <input type="text" value="{{global.activeContact.note}}">
+                        </td>
+                    </tr>                    
+                </table>
+        </section>
     </div>
+    <footer class="contact-details__footer">
+        <button (click)=prepareCreateForm()>
+            +
+        </button>
+    
+        <button class="contact-details__edit_button" (click)=startEditing()>
+            Edit
+        </button>
+    </footer>
 </div>
 
-<button (click)=prepareCreateForm()>
-+
-</button>
 
-<button (click)=startEditing()>
-Edit
-</button>

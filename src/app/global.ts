@@ -3,6 +3,7 @@ export interface IContact {
     firstName: string;
     lastName: string;
     phone: string;
+    email: string;
     address: string;
     note: string;
   }
@@ -109,6 +110,7 @@ export class GlobalModule {
             firstName: this.names[randOne],
             lastName: this.names[randTwo],
             phone: '2434',
+            email: 'h2o@h2o.ai',
             address: 'address test',
             note: 'note test'
           });
@@ -145,6 +147,7 @@ export class GlobalModule {
         firstName: null,
         lastName: null,
         phone: null,
+        email: null,
         address: null,
         note: null
       };

@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatSidenavModule, MatChipsModule} from '@angular/material';
 import { OrderByPipe } from './order-by.pipe';
 import { NavLeftComponent } from './nav-left/nav-left.component';
 import { HomeComponent } from './home/home.component';
@@ -23,9 +22,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatChipsModule,
     FormsModule,
     ReactiveFormsModule
   ],
