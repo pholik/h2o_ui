@@ -1,8 +1,8 @@
-<div *ngFor="let contact of global.locContacts | orderBy : ['lastName', 'firstName']; let i = index">
-  <div *ngIf="addLetterDivider(i)">
-    <b>{{global.locContacts[i].lastName[0].toUpperCase()}}</b>
-  </div>
-  <button (click)="selectActive(contact.id)" [ngClass]="{'active': isActive(contact.id)}" >
+<ul *ngFor="let contact of global.locContacts | orderBy : ['lastName', 'firstName']; let i = index">
+  <li class="nav-left__heading" *ngIf="addLetterDivider(i)">
+    {{global.locContacts[i].lastName[0].toUpperCase()}}
+  </li>
+  <li class="nav-left__element" (click)="selectActive(contact.id)" [ngClass]="{'active': isActive(contact.id)}" >
       {{contact.firstName}} / {{contact.lastName}}
-  </button>
-</div>
+  </li>
+</ul>

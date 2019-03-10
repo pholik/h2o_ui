@@ -1,0 +1,24 @@
+@import "../../assets/_variables.scss";
+
+ul {
+      list-style-type: none;
+}
+
+.active {
+      background: $active_font;
+      color: white;
+}
+
+.nav-left__heading {
+      color: $heading_gray;
+      margin-left: 15px;
+      border-bottom: 1px solid $line_color;
+}
+
+.nav-left__element {
+      display: block;
+      padding-left: 45px; 
+      height: 45px;
+      line-height: 45px;
+      overflow: hidden;
+}
