@@ -1,4 +1,4 @@
-<nav class="left-nav">
+<nav>
   <ul *ngFor="let contact of global.locContacts | orderBy : ['lastName', 'firstName']; let i = index">
     <li class="nav-left__heading" *ngIf="addLetterDivider(i)">
       {{global.locContacts[i].lastName[0].toUpperCase()}}

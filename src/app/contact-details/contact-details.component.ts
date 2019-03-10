@@ -51,7 +51,7 @@ export class ContactDetailsComponent implements OnInit {
       newContact.id = newId;
       this.onCreate(newContact);
     }
-    this.isEdit = false;
+    this.global.isEditing = false;
   }
 
   public prepareCreateForm() {
@@ -60,12 +60,12 @@ export class ContactDetailsComponent implements OnInit {
     this.cd.detectChanges();
     // this.activeContactId = null;
     // this.activeContact = this.global.createEmptyContact();
-    this.isEdit = true;
+    this.global.isEditing = true;
     // this.activeContactIdChange.emit(-1);
   }
 
   public startEditing() {
-    this.isEdit = this.isEdit ? false : true;
+    this.global.isEditing = this.global.isEditing ? false : true;
   }
 
 }

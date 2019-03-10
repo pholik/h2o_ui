@@ -1,10 +1,4 @@
 <section class="container">
-  
-  <app-nav-left (messageEvent)="receiveMessage($event)"></app-nav-left>
-  <app-contact-details [(activeContactId)]="activeContactId"></app-contact-details>
-  <!-- {{ activeContact !== null ? this.global.getContactById(activeContact).firstName : null }} -->
-  <!-- <mat-sidenav-content>
-    Main contentfasdfasfsfasaffafaffds {{activeContact}}
-  </mat-sidenav-content> -->
+  <app-nav-left class="left-nav" (messageEvent)="receiveMessage($event)"></app-nav-left>
+  <app-contact-details class="contact-details__content_wrapper" [(activeContactId)]="activeContactId"></app-contact-details>
 </section>
-<!-- <app-nav-left (messageEvent)="receiveMessage($event)"></app-nav-left> -->

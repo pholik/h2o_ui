@@ -5,19 +5,6 @@
     padding-bottom: 120px;
 }
 
-.contact-details__content_wrapper {
-    padding: 80px 50px 10px 50px;
-    float: left;
-    position: relative;
-    height: 100vh;
-    width: 70%;
-    box-sizing: border-box;
-}
-
-table {
-    width: 100%;
-}
-
 table tr {
     border-bottom: 1px solid $line_color;
 }
@@ -37,11 +24,19 @@ table tr {
 
 .contact-details__footer {
     position: absolute;
-    width: 100%;
     box-sizing: border-box;
+    left: 50px;
+    right: 50px;
     bottom: 30px;
 }
 
 .contact-details__edit_button {
     float: right;
+}
+
+.contact-details__inline {
+    display: inline-block;
+}
+
+.contact-details__inline_input {
 }

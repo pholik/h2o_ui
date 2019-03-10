@@ -12,6 +12,8 @@ export class GlobalModule {
     locContacts: IContact[];
     activeContactId: number;
     activeContact: IContact = this.createEmptyContact();
+    isEditing: boolean = false;
+
     names = ['Adam',
   'Andrewe',
   'Anthonye',
