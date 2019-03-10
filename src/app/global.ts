@@ -2,6 +2,9 @@ export interface IContact {
     id: number;
     firstName: string;
     lastName: string;
+    phone: string;
+    address: string;
+    note: string;
   }
 
 export class GlobalModule {
@@ -90,7 +93,7 @@ export class GlobalModule {
 
     constructor() {
         localStorage.setItem('contacts', JSON.stringify(this.generateContacts(4)));
-        this.locContacts = this.generateContacts(10);
+        this.locContacts = this.generateContacts(100);
     }
 
     private generateContacts(iter: number) {
@@ -102,7 +105,10 @@ export class GlobalModule {
           contacts.push({
             id: i,
             firstName: this.names[randOne],
-            lastName: this.names[randTwo]
+            lastName: this.names[randTwo],
+            phone: '2434',
+            address: 'address test',
+            note: 'note test'
           });
         }
         return contacts;
@@ -125,5 +131,20 @@ export class GlobalModule {
       for (let key in a) {
         a[key] = updatedContact[key];
       }
+    }
+
+    public addContact(newContact: IContact): void {
+      this.locContacts.push(newContact);
+    }
+
+    public createEmptyContact(): IContact {
+      return {
+        id: null,
+        firstName: null,
+        lastName: null,
+        phone: null,
+        address: null,
+        note: null
+      };
     }
 }

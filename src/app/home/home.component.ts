@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GlobalModule } from '../global';
 
 @Component({
@@ -9,7 +9,7 @@ import { GlobalModule } from '../global';
 
 export class HomeComponent implements OnInit {
 
-  activeContactId: number;
+  @Input() activeContactId: number;
 
   receiveMessage($event) {
     this.activeContactId = $event;

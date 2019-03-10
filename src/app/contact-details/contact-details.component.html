@@ -1,11 +1,27 @@
-{{activeContact?.firstName}}
+<div *ngIf="activeContact">
+    <div *ngIf="isEdit">
+        {{activeContact?.id ? 'Lets edit': 'Lets create'}}
+        <form [formGroup]="contactForm" novalidate (ngSubmit)="onSubmit()">
+            <input type="text" formControlName="firstName">
+            <input type="text" formControlName="lastName">
+            <input type="text" formControlName="phone">
+            <input type="text" formControlName="address">
+            <input type="text" formControlName="note">
+            <button type="submit" name="action" [disabled]='!contactForm.valid'>
+                Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+    <div *ngIf="!isEdit">
+            {{this.activeContact.firstName}}
+    </div>
+</div>
 
-<form [formGroup]="contactForm" novalidate (ngSubmit)="onUpdate()">
-    <input type="text" formControlName="firstName">
-    <input type="text" formControlName="lastName">
-    <button type="submit" name="action">
-            Submit
-            <i class="material-icons right">send</i>
-    </button>
-  
-</form>
+<button (click)=prepareCreateForm()>
++
+</button>
+
+<button (click)=startEditing()>
+Edit
+</button>

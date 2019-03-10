@@ -2,7 +2,7 @@
   <mat-sidenav mode="side" opened>
       <app-nav-left (messageEvent)="receiveMessage($event)"></app-nav-left>
   </mat-sidenav>
-  <app-contact-details [activeContactId]="activeContactId"></app-contact-details>
+  <app-contact-details [(activeContactId)]="activeContactId"></app-contact-details>
   <!-- {{ activeContact !== null ? this.global.getContactById(activeContact).firstName : null }} -->
   <!-- <mat-sidenav-content>
     Main contentfasdfasfsfasaffafaffds {{activeContact}}
