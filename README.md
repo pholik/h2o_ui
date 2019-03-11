@@ -1,6 +1,8 @@
 # H2o
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
+See deployed webapp here: https://pholik.github.io/h2o_ui/ 
+
+(Generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5).
 
 ## Development server
 
