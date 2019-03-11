@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { OrderByPipe } from './order-by.pipe';
+import { OrderByPipe } from './shared/order-by.pipe';
 import { NavLeftComponent } from './nav-left/nav-left.component';
 import { HomeComponent } from './home/home.component';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';

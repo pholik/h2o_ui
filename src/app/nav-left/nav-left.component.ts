@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { GlobalModule, IContact } from '../global';
+import { GlobalService, IContact } from '../shared/global.service';
 
 @Component({
   selector: 'app-nav-left',
@@ -12,7 +12,7 @@ export class NavLeftComponent implements OnInit {
   @Output() messageEvent = new EventEmitter<number>();
   contacts: IContact[] = [];
 
-  constructor(public global: GlobalModule) { }
+  constructor(public global: GlobalService) { }
 
   ngOnInit() { }
 

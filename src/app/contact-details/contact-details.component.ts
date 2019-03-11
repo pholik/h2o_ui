@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
-import { GlobalModule, IContact } from '../global';
+import { GlobalService, IContact } from '../shared/global.service';
 import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
@@ -30,7 +30,7 @@ export class ContactDetailsComponent implements OnInit {
     note: [null]
   });
 
-  constructor(public global: GlobalModule,
+  constructor(public global: GlobalService,
               private fb: FormBuilder, public cd: ChangeDetectorRef) { }
 
   ngOnInit() { }

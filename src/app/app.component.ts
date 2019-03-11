@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GlobalModule, IContact } from './global';
+import { GlobalService, IContact } from './shared/global.service';
 
 
 
@@ -7,7 +7,7 @@ import { GlobalModule, IContact } from './global';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [GlobalModule]
+  providers: [GlobalService]
 })
 
 export class AppComponent {

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GlobalModule } from '../global';
+import { GlobalService } from '../shared/global.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
     this.activeContactId = $event;
   }
 
-  constructor(public global: GlobalModule) { }
+  constructor(public global: GlobalService) { }
 
   ngOnInit() {
 
