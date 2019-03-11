@@ -5,6 +5,7 @@
     </li>
     <li class="nav-left__element" (click)="selectActive(contact.id)" [ngClass]="{'active': isActive(contact.id)}" >
         {{contact.firstName}} / {{contact.lastName}}
+        <img class='nav-left__remove_icon' *ngIf='isActive(contact.id) && global.isEditing' (click)='removeContact(contact.id)' src="../../assets/icon_delete.svg" alt="delete">
     </li>
   </ul>
 </nav>

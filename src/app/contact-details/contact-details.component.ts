@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { GlobalModule, IContact } from '../global';
 import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-contact-details',
@@ -20,10 +21,11 @@ export class ContactDetailsComponent implements OnInit {
   isEdit = false;
 
   contactForm = this.fb.group({
-    id: [null],
+    id: [this.global.activeContact.id],
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],
     phone: [null],
+    email: [null],
     address: [null],
     note: [null]
   });
@@ -45,23 +47,25 @@ export class ContactDetailsComponent implements OnInit {
   public onSubmit() {
     if (this.contactForm.value.id) {
       this.onUpdate(this.contactForm.value);
-    } else {
+    } else if (!this.contactForm.value.id) {
       const newId = Math.max.apply(Math, this.global.locContacts.map(o => o.id )) + 1;
       const newContact = this.contactForm.value;
       newContact.id = newId;
       this.onCreate(newContact);
+      this.global.activeContactId = newId;
+      this.global.activeContact = newContact;
+      this.global.isEditing = false;
+      this.cd.detectChanges();
     }
     this.global.isEditing = false;
   }
 
   public prepareCreateForm() {
     this.contactForm.reset();
-    this.global.activeContactId = 0;
-    this.cd.detectChanges();
-    // this.activeContactId = null;
-    // this.activeContact = this.global.createEmptyContact();
+    this.global.activeContactId = -1;
+    this.global.activeContact = this.global.createEmptyContact();
+    this.global.activeContact.id = -1;
     this.global.isEditing = true;
-    // this.activeContactIdChange.emit(-1);
   }
 
   public startEditing() {
